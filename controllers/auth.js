@@ -8,7 +8,7 @@ const signin=asyncWarapper( async(req,res,next)=>{
     const {email,password}=req.body
   const user=await prisma.user.findUnique({
     where: {
-      email:email,
+      email:req.body.email
     },
   })
   if (!user){
