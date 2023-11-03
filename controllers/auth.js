@@ -32,15 +32,15 @@ const signin=asyncWarapper( async(req,res,next)=>{
       });
   }
   var token = jwt.sign({
-    id: user?.id
+    id: user.id
   }, process.env.API_SECRET, {
     expiresIn:60*60*24*30
   });
   res.status(200)
   .json({
     user: {
-      id: user?.id,
-      email: user?.email,
+      id: user.id,
+      email: user.email,
     },
     message: "Login successfull",
     accessToken: token,
